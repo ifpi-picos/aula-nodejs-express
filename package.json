@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-express",
+  "version": "1.0.0",
+  "description": "Primeiro projeto com express",
+  "main": "index.js",
+  "author": "Jesiel Viana",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  }
+}
