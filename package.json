@@ -6,10 +6,18 @@
   "author": "Jesiel Viana",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "lint": "standard"
   },
   "dependencies": {
     "express": "^4.17.1",
     "nodemon": "^2.0.15"
-  }
+  },
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "standard": "^16.0.4"
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
