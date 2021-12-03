@@ -8,9 +8,5 @@ app.use(log)
 app.use('/', routers)
 
 app.listen(3000, () => {
-  console.log('App online!');
+  console.log('App online!')
 })
-
-// 200, 201
-// 300
-// 400 
