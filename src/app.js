@@ -1,10 +1,10 @@
-const express = require('express')
-const log = require('./middlewares/log')
-const routers = require('./rotas')
+import express from 'express'
+import logger from './middlewares/logger.js'
+import routers from './rotas/index.js'
 
 const app = express()
 app.use(express.json())
-app.use(log)
+app.use(logger)
 app.use('/', routers)
 
 app.listen(3000, () => {

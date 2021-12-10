@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Curso {
+  id           Int      @id @default(autoincrement())
+  nome         String   @db.VarChar(100)
+  dataCadastro DateTime @default(now()) @db.Timestamp(6)
+  cargaHoraria Int
+  ativo        Boolean  @default(false)
+  Aluno        Aluno[]
+}
+
+model Aluno {
+  id            Int      @id @default(autoincrement())
+  nome          String   @db.VarChar(100)
+  dataMatricula DateTime @default(now()) @db.Timestamp(6)
+  email         String   @db.VarChar(50)
+  cursoId       Int
+  Curso         Curso    @relation(fields: [cursoId], references: [id])
+}
+
+// CREATE TABLE "public"."Curso" (
+//   id SERIAL PRIMARY KEY NOT NULL,
+//   nome VARCHAR(100),
+//   "cargaHoraria" INTEGER NOT NULL,
+//   "dataCadastro" TIMESTAMP NOT NULL DEFAULT now(),
+//   ativo BOOLEAN NOT NULL DEFAULT false
+// );

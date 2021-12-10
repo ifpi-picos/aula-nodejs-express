@@ -7,17 +7,17 @@ const router = express.Router()
 const prisma = new PrismaClient()
 
 router.get('/', async (req, res) => {
-  const todosAlunos = await prisma.aluno.findMany()
-  res.json(todosAlunos)
+  const todosCursos = await prisma.curso.findMany()
+  res.json(todosCursos)
 })
 
 router.post('/', async (req, res) => {
-  const { nome, email, cursoId } = req.body
-  const post = await prisma.aluno.create({
+  const { nome, cargaHoraria, ativo } = req.body
+  const post = await prisma.curso.create({
     data: {
       nome,
-      email,
-      Curso: { connect: { id: cursoId } }
+      cargaHoraria,
+      ativo
     }
   })
   res.json(post)
