@@ -18,6 +18,8 @@ model Curso {
   cargaHoraria Int
   ativo        Boolean  @default(false)
   Aluno        Aluno[]
+
+  @@map("cursos")
 }
 
 model Aluno {
@@ -27,6 +29,8 @@ model Aluno {
   email         String   @db.VarChar(50)
   cursoId       Int
   Curso         Curso    @relation(fields: [cursoId], references: [id])
+
+  @@map("alunos")
 }
 
 // CREATE TABLE "public"."Curso" (
