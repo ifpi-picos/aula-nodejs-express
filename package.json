@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-express",
+  "name": "nodejs-express-prisma",
   "version": "1.0.0",
   "description": "Primeiro projeto com express",
   "main": "index.js",
